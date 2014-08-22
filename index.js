@@ -4,10 +4,10 @@ var app = express();
 
 
 app.set("port", (process.env.PORT || 5000));
-app.use(express.static(__dirname + "/public"));
+app.use('/static', express.static(__dirname + "/static"));
 
 app.get("/", function(request, response){
-    response.send("Minor setback, Mueni");
+    response.sendfile("./static/index.html");
 });
 
 app.listen(app.get("port"), function(){
